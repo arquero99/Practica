@@ -1,0 +1,5 @@
+_putch: CODE, 1993 0 8
+_main: CODE, 2022 0 22
+_init_uart: CODE, 2001 0 21
+__initialization: CODE, 2044 0 0
+Total: 51

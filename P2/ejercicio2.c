@@ -1,5 +1,9 @@
-#include <xc.h>
-#include <stdio.h>
+/* 
+ * File:   ejercicio2.c
+ * Author: alumno
+ *
+ * Created on 27 de septiembre de 2021, 16:09
+ */
 
 // See /opt/microchip/xc8/v{ver}/docs/chips/16f886.html
 // for details on #pragma config
@@ -15,10 +19,10 @@ void init_uart(void)
   TXSTAbits.BRGH = ; //
   BAUDCTLbits.BRG16 =  ; // 8 bit mode
 
-  // SPBRGH:SPBRG = 
+  // SPBRGH:SPBRG =
   SPBRGH = ;
-  SPBRG = ;  // 
-  
+  SPBRG = ;  //
+
   TXSTAbits.SYNC = ; /* Asynchronous */
   TXSTAbits.TX9 = ; /* TX 8 data bit  */
   RCSTAbits.RX9 = ; /* RX 8 data bit */
@@ -30,14 +34,14 @@ void init_uart(void)
 
   TXSTAbits.TXEN = ; /* Reset transmitter */
   TXSTAbits.TXEN = ; /* Enable transmitter */
-  
+
  }
 
 /* It is needed for printf */
 void putch(char c)
-{ 
-  
- } 
+{
+
+ }
 
 void main(void)
 { OSCCON = 0b00001000; // External cristal
