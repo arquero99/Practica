@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtZbxW3K.obj
+$/tmp/cgteGehjP.obj
 end_init CODE 0 0 0 3 2
 config CONFIG 0 2007 2007 2 2
 $dist/default/debug/Practica2.X.debug.obj
@@ -91,12 +91,12 @@ $dist/default/debug/Practica2.X.debug.obj
 "/home/alumno/Escritorio/PracticaSE/P2/Practica2.X/ejercicio1.c":57 7F4 maintext CODE
 "/home/alumno/Escritorio/PracticaSE/P2/Practica2.X/ejercicio1.c":60 7F5 maintext CODE
 "/home/alumno/Escritorio/PracticaSE/P2/Practica2.X/ejercicio1.c":59 7FB maintext CODE
-"/tmp/cgtiXs9Zd":253 7FC cinit CODE
-"/tmp/cgtiXs9Zd":256 7FC cinit CODE
-"/tmp/cgtiXs9Zd":262 7FC cinit CODE
-"/tmp/cgtiXs9Zd":263 7FC cinit CODE
+"/tmp/cgtWBLvm5":253 7FC cinit CODE
+"/tmp/cgtWBLvm5":256 7FC cinit CODE
+"/tmp/cgtWBLvm5":262 7FC cinit CODE
+"/tmp/cgtWBLvm5":263 7FC cinit CODE
 "/home/alumno/Escritorio/PracticaSE/P2/Practica2.X/ejercicio1.c":61 7FC maintext CODE
-"/tmp/cgtiXs9Zd":264 7FD cinit CODE
+"/tmp/cgtWBLvm5":264 7FD cinit CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -119,14 +119,14 @@ __Lintentry 0 0 CODE 0 intentry -
 __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 _TXIF 64 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 _main FCC 0 CODE 0 maintext dist/default/debug/Practica2.X.debug.obj
-___sp 0 0 STACK 2 stack /tmp/cgtZbxW3K.obj
+___sp 0 0 STACK 2 stack /tmp/cgteGehjP.obj
 btemp 7E 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 ltemp 7E 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 ttemp 7E 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 wtemp 7E 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
-start 0 0 CODE 0 init /tmp/cgtZbxW3K.obj
+start 0 0 CODE 0 init /tmp/cgteGehjP.obj
 _TXREG 19 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
-reset_vec 0 0 CODE 0 reset_vec /tmp/cgtZbxW3K.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/cgteGehjP.obj
 _SPBRG 99 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 ltemp0 7E 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 ttemp0 7E 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
@@ -158,7 +158,7 @@ __Lcommon 0 0 ABS 0 common -
 _PIE1bits 8C 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-___int_sp 0 0 STACK 2 stack /tmp/cgtZbxW3K.obj
+___int_sp 0 0 STACK 2 stack /tmp/cgteGehjP.obj
 _SPBRGH 9A 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 _OSCCON 8F 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
 __Habs1 0 0 ABS 0 abs1 -
@@ -174,8 +174,8 @@ __Lsfr3 0 0 ABS 0 sfr3 -
 putch@c 70 0 COMMON 1 cstackCOMMON dist/default/debug/Practica2.X.debug.obj
 __Hcode 0 0 ABS 0 code -
 __Lcode 0 0 ABS 0 code -
-stackhi 0 0 ABS 0 - /tmp/cgtZbxW3K.obj
-stacklo 0 0 ABS 0 - /tmp/cgtZbxW3K.obj
+stackhi 0 0 ABS 0 - /tmp/cgteGehjP.obj
+stacklo 0 0 ABS 0 - /tmp/cgteGehjP.obj
 __Hinit 0 0 CODE 0 init -
 __Linit 0 0 CODE 0 init -
 __end_of_main FF8 0 CODE 0 maintext dist/default/debug/Practica2.X.debug.obj
@@ -225,13 +225,13 @@ __Hend_init 6 0 CODE 0 end_init -
 __Lend_init 0 0 CODE 0 end_init -
 __Hreset_vec 0 0 CODE 0 reset_vec -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-intlevel0 0 0 CODE 0 functab /tmp/cgtZbxW3K.obj
+intlevel0 0 0 CODE 0 functab /tmp/cgteGehjP.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/debug/Practica2.X.debug.obj
-intlevel1 0 0 CODE 0 functab /tmp/cgtZbxW3K.obj
-intlevel2 0 0 CODE 0 functab /tmp/cgtZbxW3K.obj
-intlevel3 0 0 CODE 0 functab /tmp/cgtZbxW3K.obj
-intlevel4 0 0 CODE 0 functab /tmp/cgtZbxW3K.obj
-intlevel5 0 0 CODE 0 functab /tmp/cgtZbxW3K.obj
+intlevel1 0 0 CODE 0 functab /tmp/cgteGehjP.obj
+intlevel2 0 0 CODE 0 functab /tmp/cgteGehjP.obj
+intlevel3 0 0 CODE 0 functab /tmp/cgteGehjP.obj
+intlevel4 0 0 CODE 0 functab /tmp/cgteGehjP.obj
+intlevel5 0 0 CODE 0 functab /tmp/cgteGehjP.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug/Practica2.X.debug.obj
