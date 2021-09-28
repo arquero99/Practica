@@ -1,6 +1,26 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"50 /opt/microchip/xc8/v1.30/include/pic16f886.h
+[v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
+"216
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+[s S15 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S15 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+[s S16 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S16 . . TMR0IF . TMR0IE ]
+[u S14 `S15 1 `S16 1 ]
+[n S14 . . . ]
+"387
+[v _INTCONbits `VS14 ~T0 @X0 0 e@11 ]
+[s S49 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S49 . PS PSA T0SE T0CS INTEDG nRBPU ]
+[s S50 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . PS0 PS1 PS2 ]
+[u S48 `S49 1 `S50 1 ]
+[n S48 . . . ]
+"1247
+[v _OPTION_REGbits `VS48 ~T0 @X0 0 e@129 ]
 [p mainexit ]
-"1656 /opt/microchip/xc8/v1.30/include/pic16f886.h
+"1656
 [v _OSCCON `Vuc ~T0 @X0 0 e@143 ]
 "3153
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
@@ -10,24 +30,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
 "1357
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"216
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"5 ../ensayo-0.c
-[p x CPD=OFF ]
-[p x BOREN=OFF ]
-[p x IESO=OFF ]
-[p x DEBUG=OFF ]
-[p x FOSC=HS ]
-"6
-[p x FCMEN=OFF ]
-[p x MCLRE=ON ]
-[p x WDTE=OFF ]
-[p x CP=OFF ]
-[p x LVP=OFF ]
-"7
-[p x PWRTE=ON ]
-[p x BOR4V=BOR21V ]
-[p x WRT=OFF ]
 [; ;htc.h: 22: extern void __builtin_software_breakpoint(void);
 [; ;pic16f886.h: 44: extern volatile unsigned char INDF @ 0x000;
 "46 /opt/microchip/xc8/v1.30/include/pic16f886.h
@@ -1442,51 +1444,143 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern __nonreentrant void _delay(unsigned long);
-"12 ../ensayo-0.c
-[v _main `(v ~T0 @X0 1 ef ]
-"13
-{
-[; ;ensayo-0.c: 12: void main(void)
-[; ;ensayo-0.c: 13: { char x;
-[e :U _main ]
-[f ]
-[v _x `uc ~T0 @X0 1 a ]
-[; ;ensayo-0.c: 15: OSCCON = 0b00001000;
-"15
-[e = _OSCCON -> -> 8 `i `uc ]
-[; ;ensayo-0.c: 17: x = 0;
-"17
-[e = _x -> -> 0 `i `uc ]
-[; ;ensayo-0.c: 18: ANSEL = 0;
+"6 ../ensayo-1.c
+[p x CPD=OFF ]
+[p x BOREN=OFF ]
+[p x IESO=OFF ]
+[p x DEBUG=OFF ]
+[p x FOSC=HS ]
+"7
+[p x FCMEN=OFF ]
+[p x MCLRE=ON ]
+[p x WDTE=OFF ]
+[p x CP=OFF ]
+[p x LVP=OFF ]
+"8
+[p x PWRTE=ON ]
+[p x BOR4V=BOR21V ]
+[p x WRT=OFF ]
+[; ;ensayo-1.c: 15: void init_t0();
+[; ;ensayo-1.c: 16: void interrupt t0int (void);
 "18
-[e = _ANSEL -> -> 0 `i `uc ]
-[; ;ensayo-0.c: 19: ANSELH = 0;
+[v _x `i ~T0 @X0 1 e ]
+[i _x
+-> 0 `i
+]
+[; ;ensayo-1.c: 18: int x=0;
 "19
-[e = _ANSELH -> -> 0 `i `uc ]
-[; ;ensayo-0.c: 20: TRISA = 0;
-"20
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;ensayo-0.c: 21: TRISB = 0;
-"21
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;ensayo-0.c: 23: while(1)
+[v _numInterruptT0 `i ~T0 @X0 1 e ]
+[i _numInterruptT0
+-> 0 `i
+]
+[; ;ensayo-1.c: 19: int numInterruptT0=0;
+[v F1555 `(v ~T0 @X0 1 tf ]
 "23
-[e :U 137 ]
-[; ;ensayo-0.c: 24: { PORTB = x;
+[v _t0int `IF1555 ~T0 @X0 1 e ]
 "24
 {
-[e = _PORTB _x ]
-[; ;ensayo-0.c: 25: x += 1;
+[; ;ensayo-1.c: 23: void interrupt t0int (void)
+[; ;ensayo-1.c: 24: {
+[e :U _t0int ]
+[f ]
+[; ;ensayo-1.c: 25: TMR0 =157;
 "25
-[e =+ _x -> -> 1 `i `uc ]
+[e = _TMR0 -> -> 157 `i `uc ]
+[; ;ensayo-1.c: 26: numInterruptT0++;
 "26
+[e ++ _numInterruptT0 -> 1 `i ]
+[; ;ensayo-1.c: 27: if(numInterruptT0>=199){
+"27
+[e $ ! >= _numInterruptT0 -> 199 `i 136  ]
+{
+[; ;ensayo-1.c: 28: x++;
+"28
+[e ++ _x -> 1 `i ]
+[; ;ensayo-1.c: 29: PORTB = x;
+"29
+[e = _PORTB -> _x `uc ]
+[; ;ensayo-1.c: 30: numInterruptT0 = 0;
+"30
+[e = _numInterruptT0 -> 0 `i ]
+"31
 }
 [e :U 136 ]
-"23
-[e $U 137  ]
-[e :U 138 ]
-[; ;ensayo-0.c: 26: }
-[; ;ensayo-0.c: 27: }
-"27
+[; ;ensayo-1.c: 31: }
+[; ;ensayo-1.c: 32: INTCONbits.T0IF=0;
+"32
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;ensayo-1.c: 33: }
+"33
 [e :UE 135 ]
+}
+"35
+[v _init_t0 `(v ~T0 @X0 1 ef ]
+"36
+{
+[; ;ensayo-1.c: 35: void init_t0()
+[; ;ensayo-1.c: 36: {
+[e :U _init_t0 ]
+[f ]
+[; ;ensayo-1.c: 37: OPTION_REGbits.PS=0b111;
+"37
+[e = . . _OPTION_REGbits 0 0 -> -> 7 `i `uc ]
+[; ;ensayo-1.c: 38: OPTION_REGbits.T0CS=0;
+"38
+[e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
+[; ;ensayo-1.c: 39: OPTION_REGbits.PSA=0;
+"39
+[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
+[; ;ensayo-1.c: 40: INTCONbits.T0IE=1;
+"40
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+[; ;ensayo-1.c: 41: }
+"41
+[e :UE 137 ]
+}
+"43
+[v _main `(v ~T0 @X0 1 ef ]
+"44
+{
+[; ;ensayo-1.c: 43: void main (void)
+[; ;ensayo-1.c: 44: {
+[e :U _main ]
+[f ]
+[; ;ensayo-1.c: 48: OSCCON = 0b00001000;
+"48
+[e = _OSCCON -> -> 8 `i `uc ]
+[; ;ensayo-1.c: 50: ANSEL = 0;
+"50
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;ensayo-1.c: 51: ANSELH = 0;
+"51
+[e = _ANSELH -> -> 0 `i `uc ]
+[; ;ensayo-1.c: 52: TRISA = 0;
+"52
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;ensayo-1.c: 53: TRISB = 0;
+"53
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;ensayo-1.c: 55: init_t0();
+"55
+[e ( _init_t0 ..  ]
+[; ;ensayo-1.c: 57: INTCONbits.INTE=1;
+"57
+[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+[; ;ensayo-1.c: 58: INTCONbits.GIE=1;
+"58
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;ensayo-1.c: 69: while(1){
+"69
+[e :U 140 ]
+{
+"70
+}
+[e :U 139 ]
+"69
+[e $U 140  ]
+[e :U 141 ]
+[; ;ensayo-1.c: 70: }
+[; ;ensayo-1.c: 72: }
+"72
+[e :UE 138 ]
 }

@@ -1,12 +1,5 @@
 
-# 1 "../ensayo-0.c"
-
-
-
-
-#pragma config CPD = OFF, BOREN = OFF, IESO = OFF, DEBUG = OFF, FOSC = HS
-#pragma config FCMEN = OFF, MCLRE = ON, WDTE = OFF, CP = OFF, LVP = OFF
-#pragma config PWRTE = ON, BOR4V = BOR21V, WRT = OFF
+# 1 "../ensayo-1.c"
 
 
 # 21 "/opt/microchip/xc8/v1.30/include/htc.h"
@@ -1988,20 +1981,64 @@ extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsi
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
-# 12 "../ensayo-0.c"
-void main(void)
-{ char x;
+
+# 6 "../ensayo-1.c"
+#pragma config CPD = OFF, BOREN = OFF, IESO = OFF, DEBUG = OFF, FOSC = HS
+#pragma config FCMEN = OFF, MCLRE = ON, WDTE = OFF, CP = OFF, LVP = OFF
+#pragma config PWRTE = ON, BOR4V = BOR21V, WRT = OFF
+
+#pragma intrinsic(_delay)
+
+
+
+
+void init_t0();
+void interrupt t0int (void);
+
+int x=0;
+int numInterruptT0=0;
+
+
+
+void interrupt t0int (void)
+{
+TMR0 =157;
+numInterruptT0++;
+if(numInterruptT0>=199){
+x++;
+PORTB = x;
+numInterruptT0 = 0;
+}
+INTCONbits.T0IF=0;
+}
+
+void init_t0()
+{
+OPTION_REGbits.PS=0b111;
+OPTION_REGbits.T0CS=0;
+OPTION_REGbits.PSA=0;
+INTCONbits.T0IE=1;
+}
+
+void main (void)
+{
+
+
 
 OSCCON = 0b00001000;
 
-x = 0;
 ANSEL = 0;
 ANSELH = 0;
 TRISA = 0;
 TRISB = 0;
 
-while(1)
-{ PORTB = x;
-x += 1;
+init_t0();
+
+INTCONbits.INTE=1;
+INTCONbits.GIE=1;
+
+# 69
+while(1){
 }
+
 }
