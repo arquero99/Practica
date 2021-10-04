@@ -1,10 +1,12 @@
-/* 
- * File:   ejercicio2.c
- * Author: alumno
+/*
+ * File:   ejercicio1.c
+ * Author: Juan Arquero
  *
- * Created on 27 de septiembre de 2021, 16:09
+ * Created on 27 de septiembre de 2021, 15:12
  */
 
+#include <xc.h>
+#include <stdio.h>
 // See /opt/microchip/xc8/v{ver}/docs/chips/16f886.html
 // for details on #pragma config
 
@@ -16,37 +18,45 @@
 void init_uart(void)
 {  /* See chapter 12.3 PIC16F886 manual (table 12-5) */
 
-  TXSTAbits.BRGH = ; //
-  BAUDCTLbits.BRG16 =  ; // 8 bit mode
+  TXSTAbits.BRGH = 0; //Low speed asynchronous mode
+  BAUDCTLbits.BRG16 = 0 ; // 8 bit mode
 
   // SPBRGH:SPBRG =
-  SPBRGH = ;
-  SPBRG = ;  //
+  SPBRGH = 0;
+  SPBRG = 32;  // 9600 baud rate with 20MHz Clock . Actual rate = 9470. Err= -1.36%
 
-  TXSTAbits.SYNC = ; /* Asynchronous */
-  TXSTAbits.TX9 = ; /* TX 8 data bit  */
-  RCSTAbits.RX9 = ; /* RX 8 data bit */
+  TXSTAbits.SYNC = 0; /* Asynchronous */
+  TXSTAbits.TX9 = 0; /* TX 8 data bit  Para transmision de 8 bits*/
+  // RCSTAbits.RX9 = 0; /* RX 8 data bit */
 
-  PIE1bits.TXIE = ; /* Disable TX interrupt */
-  PIE1bits.RCIE = ; /* Disable RX interrupt */
+  PIE1bits.TXIE = 1; /* Disable TX interrupt */
+  //PIE1bits.RCIE = ; /* Disable RX interrupt */
 
-  RCSTAbits.SPEN = ; /* Serial port enable */
+  RCSTAbits.SPEN = 1; /* Serial port enable */
 
-  TXSTAbits.TXEN = ; /* Reset transmitter */
-  TXSTAbits.TXEN = ; /* Enable transmitter */
+  TXSTAbits.TXEN = 1; /* Modo transmitter */
+  //TXSTAbits.TXEN = ; /* Enable transmitter */
+
 
  }
 
-/* It is needed for printf */
+/* It is needed for printf. Seguido ejemplo pag 31. compilers man */
 void putch(char c)
 {
-
+    while ( ! TXIF){
+        continue;
+    }
+    TXREG = c;
  }
 
 void main(void)
-{ OSCCON = 0b00001000; // External cristal
+{
+ // char a = 'a';
+  OSCCON = 0b00001000; // External cristal
   init_uart();
+  INTCONbits.PEIE=1;
+  INTCONbits.GIE=1;
 
   while(1)
-    printf("Hola\r\n");
+      printf("Hola \r\n");
  }

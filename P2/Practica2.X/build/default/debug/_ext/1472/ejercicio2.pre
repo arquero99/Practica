@@ -1,5 +1,5 @@
 
-# 1 "ejercicio1.c"
+# 1 "../ejercicio2.c"
 
 
 # 21 "/opt/microchip/xc8/v1.30/include/htc.h"
@@ -1981,8 +1981,76 @@ extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsi
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
+# 8 "/opt/microchip/xc8/v1.30/include/stdio.h"
+typedef int ptrdiff_t;
+typedef unsigned size_t;
+typedef unsigned short wchar_t;
 
-# 12 "ejercicio1.c"
+# 7 "/opt/microchip/xc8/v1.30/include/stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 23 "/opt/microchip/xc8/v1.30/include/stdio.h"
+extern int errno;
+
+# 54
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 17 "/opt/microchip/xc8/v1.30/include/conio.h"
+extern int errno;
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 31
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 99 "/opt/microchip/xc8/v1.30/include/stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 191
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...);
+extern int sscanf(const char *, const char *, ...);
+extern int vprintf(const char *, va_list);
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap);
+extern int vsscanf(const char *, const char *, va_list);
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+
+# 13 "../ejercicio2.c"
 #pragma config CPD = OFF, BOREN = OFF, IESO = OFF, DEBUG = OFF, FOSC = HS
 #pragma config FCMEN = OFF, MCLRE = ON, WDTE = OFF, CP = OFF, LVP = OFF
 #pragma config PWRTE = ON, BOR4V = BOR21V, WRT = OFF
@@ -2024,13 +2092,12 @@ TXREG = c;
 
 void main(void)
 {
-char a = 'a';
+
 OSCCON = 0b00001000;
 init_uart();
 INTCONbits.PEIE=1;
 INTCONbits.GIE=1;
 
 while(1)
-putch(a);
+printf("Hola \r\n");
 }
-

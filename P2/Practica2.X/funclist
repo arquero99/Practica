@@ -1,5 +1,8 @@
-_putch: CODE, 1993 0 8
-_main: CODE, 2022 0 22
-_init_uart: CODE, 2001 0 21
+__stringtab: STRING, 3 0 6
+__stringdata: STRING, 9 0 8
+_putch: CODE, 1969 0 8
+_main: CODE, 1977 0 18
+_init_uart: CODE, 1995 0 21
 __initialization: CODE, 2044 0 0
-Total: 51
+_printf: CODE, 2016 0 28
+Total: 89
