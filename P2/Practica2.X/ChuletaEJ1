@@ -1,0 +1,28 @@
+12.1.1.6 Asynchronous Transmission Set-up:
+
+1. Initialize the SPBRGH, SPBRG register pair and
+the BRGH and BRG16 bits to achieve the desired
+baud rate (see Section 12.3 ?EUSART Baud
+Rate Generator (BRG)?).
+
+2. Enable the asynchronous serial port by clearing
+the SYNC bit and setting the SPEN bit.
+
+3. If 9-bit transmission is desired, set the TX9 control bit. A set ninth data bit will indicate that the 8
+Least Significant data bits are an address when
+the receiver is set for address detection.
+
+4. Enable the transmission by setting the TXEN
+control bit. This will cause the TXIF interrupt bit
+to be set.
+
+5. If interrupts are desired, set the TXIE interrupt
+enable bit of the PIE1 register. An interrupt will
+occur immediately provided that the GIE and
+PEIE bits of the INTCON register are also set.
+
+6. If 9-bit transmission is selected, the ninth bit
+should be loaded into the TX9D data bit.
+
+7. Load 8-bit data into the TXREG register. This
+will start the transmission.

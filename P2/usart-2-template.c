@@ -12,15 +12,15 @@
 void init_uart(void)
 {  /* See chapter 12.3 PIC16F886 manual (table 12-5) */
 
-  TXSTAbits.BRGH = ;
-  BAUDCTLbits.BRG16 = ;
+  TXSTAbits.BRGH = ; //
+  BAUDCTLbits.BRG16 =  ; // 8 bit mode
 
   // SPBRGH:SPBRG = 
   SPBRGH = ;
-  SPBRG = ;  // 9600 baud rate with 20MHz Clock
+  SPBRG = ;  // 
   
   TXSTAbits.SYNC = ; /* Asynchronous */
-  TXSTAbits.TX9 = ; /* TX 8 data bit */
+  TXSTAbits.TX9 = ; /* TX 8 data bit  */
   RCSTAbits.RX9 = ; /* RX 8 data bit */
 
   PIE1bits.TXIE = ; /* Disable TX interrupt */
