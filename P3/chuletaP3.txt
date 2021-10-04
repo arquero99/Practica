@@ -1,0 +1,41 @@
+The A/D module has four registers. These registers are:
+• A/D Result High Register (ADRESH)
+• A/D Result Low Register (ADRESL)
+• A/D Control Register0 (ADCON0)
+• A/D Control Register1 (ADCON1)
+The ADCON0 register, shown in Figure 23-1, controls the operation of the A/D module. The
+ADCON1 register, shown in Figure 23-2, configures the functions of the port pins. The port pins
+can be configured as analog inputs (AN3 and AN2 can also be the voltage references) or as digital I/O.
+
+When the A/D conversion is complete, the result is loaded into the ADRES register, the
+GO/DONE bit (ADCON0<2>) is cleared, and A/D interrupt flag bit, ADIF, is set.
+After the A/D module has been configured as desired, the selected channel must be acquired
+before the conversion is started. The analog input channels must have their corresponding TRIS
+bits selected as an input. To determine acquisition time, see Subsection 21.4 “A/D Acquisition
+Requirements.” After this acquisition time has elapsed the A/D conversion can be started. The
+following steps should be followed for doing an A/D conversion:
+1. Configure the A/D module:
+• Configure analog pins / voltage reference / and digital I/O (ADCON1)
+• Select A/D input channel (ADCON0)
+• Select A/D conversion clock (ADCON0)
+• Turn on A/D module (ADCON0)
+2. Configure A/D interrupt (if desired):
+• Clear the ADIF bit
+• Set the ADIE bit
+• Set the GIE bit
+3. Wait the required acquisition time.
+4. Start conversion:
+• Set the GO/DONE bit (ADCON0)
+5. Wait for A/D conversion to complete, by either:
+• Polling for the GO/DONE bit to be cleared
+OR
+• Waiting for the A/D interrupt
+6. Read A/D Result register (ADRES), clear the ADIF bit, if required.
+7. For next conversion, go to step 1 or step 2 as required. The A/D conversion time per bit is
+defined as TAD. A minimum wait of 2TAD is required before next acquisition starts
+
+
+-------RELOJ (ADCS y Operation)-----------------
+Operation ADCS1:ADCS0 4 MHz     2 MHz  1.25 MHz     333.33 kHz
+8TOSC     01          400 ns(2) 1.6 µs 6.4 µs       24 µs(3)
+32TOSC    10          1.6 µs    6.4 µs 25.6 µs(3)   96 µs(3)
