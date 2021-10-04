@@ -17,9 +17,11 @@
  */
 
 void init_CAD(){
-    //Configuración de puerto
+    //Configuración de puerto de entrada
     TRISAbits.TRISA0=1;    //Puerto A como entrada. Consultar a Norberto
     ANSELbits.ANS0=1;       //Establece entrada analogica. Idem
+    //Puerto B de salida
+    TRISBbits.TRISB0=0;
     //Configuración ADCON1
     ADCON1bits.ADFM=1;     //Justificado a la derecha.
     ADCON1bits.VCFG1=0;     //Ground como Vref-
@@ -30,16 +32,20 @@ void init_CAD(){
     ADCON0bits.ADON=1;      //Enciende conversor
 }
 void __interrupt() CAD_int(void){
-    getAnalog();    //Llamada recursiva que actuará como bucle infinito
     PIR1bits.ADIF=0;    //Flag de interrupción CAD a 0
+    //getAnalog();    //Llamada recursiva que actuará como bucle infinito
 }
 
 void getAnalog(void){
-for(int i=0;i++;i<18){
+for(int i=0;i++;i<16){
             __nop(); //Para respetar el tiempo de adquisicionX2 insertamos 16 operaciones vacías
         }
         //AQUI REALIZAMOS CONVERSION
 ADCON0bits.GO=1;
+while(!PIR1bits.ADIF) //Esperamos hasta que llegue interrupción de conversor A/D
+{
+}
+PORTB=ADRESL;   //Pasamos a Puerto B la salida de converosr A/D
 }
 
 
