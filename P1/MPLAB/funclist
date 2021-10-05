@@ -1,0 +1,5 @@
+_t0int: CODE, 29 0 45
+_main: CODE, 74 0 20
+_init_t0: CODE, 94 0 8
+__initialization: CODE, 21 0 4
+Total: 77
