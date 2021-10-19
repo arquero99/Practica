@@ -32,25 +32,25 @@ void __interrupt() t0int (void) //Interrupcion que saca el contenido por puertoB
             numInterruptT0 = 0;
             
         }
-        INTCONbits.T0IF=0; //Resetea la interrupci髇
+        INTCONbits.T0IF=0; //Resetea la interrupci贸n
     }
     else if (PIR1bits.ADIF){
         puedoSeguir=1;
-        PIR1bits.ADIF=0;    //Flag de interrupci髇 CAD a 0
+        PIR1bits.ADIF=0;    //Flag de interrupci贸n CAD a 0
     }
 }
 
 void init_CAD(){
-    //Configuraci髇 de puerto de entrada
+    //Configuraci贸n de puerto de entrada
     TRISA=1;    //Puerto A como entrada. Consultar a Norberto
     ANSEL=1;       //Establece entrada analogica. Idem
     //Puerto B de salida
     TRISB=0;
-    //Configuraci髇 ADCON1
+    //Configuraci贸n ADCON1
     ADCON1bits.ADFM=1;     //Justificado a la derecha.
     ADCON1bits.VCFG1=0;     //Ground como Vref-
     ADCON1bits.VCFG0=1;     //Vdd como Vref+
-    //Configuraci髇 ADCON0
+    //Configuraci贸n ADCON0
     ADCON0bits.ADCS=0b10;   //Para configurar reloj a Fosc/32 (20Mhz, 1.6uS) PAGINA 10 ESPECIFICO
     ADCON0bits.CHS=0b0000;  //Selecciona entrada AN0
     ADCON0bits.ADON=1;      //Enciende conversor
@@ -97,20 +97,20 @@ void putch(char c)
 
 int main() {
     PIE1bits.ADIE=1;    //Interrupcion CAD habilitada
-    INTCONbits.PEIE=1;  //Interrupcion de perif閞icos habilitada        PREGUNTAR!!!!!!!!!!!!!!!!!
+    INTCONbits.PEIE=1;  //Interrupcion de perif茅ricos habilitada        PREGUNTAR!!!!!!!!!!!!!!!!!
     INTCONbits.GIE=1;   //Interrupciones habilitadas
     init_CAD(); //Configuracion de puertos y encendido del CAD
     init_t0();
     init_uart();
     while(1){
-        //while(!PIR1bits.ADIF) {}  //Esperamos hasta que llegue interrupci髇 de conversor A/D
+        //while(!PIR1bits.ADIF) {}  //Esperamos hasta que llegue interrupci贸n de conversor A/D
     
         //while(!INTCONbits.T0IF){}                       //Espera de 500ms
     
         while(puedoSeguir){
              PORTB=ADRESL;
              dato=ADRESH;
-             dato<<=8;
+             dato<<=6; //Cambio de 8 a 6
              dato|=ADRESL;
              printf("%d\n",&dato);
              puedoSeguir=0;
