@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ejercicio1.c
+SOURCEFILES_QUOTED_IF_SPACED=ejercicio2.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ejercicio1.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/ejercicio1.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ejercicio2.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/ejercicio2.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ejercicio1.p1
+OBJECTFILES=${OBJECTDIR}/ejercicio2.p1
 
 # Source Files
-SOURCEFILES=ejercicio1.c
+SOURCEFILES=ejercicio2.c
 
 
 
@@ -94,22 +94,22 @@ MP_PROCESSOR_OPTION=16F886
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/ejercicio1.p1: ejercicio1.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/ejercicio2.p1: ejercicio2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/ejercicio1.p1.d 
-	@${RM} ${OBJECTDIR}/ejercicio1.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mosccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ejercicio1.p1 ejercicio1.c 
-	@-${MV} ${OBJECTDIR}/ejercicio1.d ${OBJECTDIR}/ejercicio1.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/ejercicio1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/ejercicio2.p1.d 
+	@${RM} ${OBJECTDIR}/ejercicio2.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mosccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ejercicio2.p1 ejercicio2.c 
+	@-${MV} ${OBJECTDIR}/ejercicio2.d ${OBJECTDIR}/ejercicio2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ejercicio2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/ejercicio1.p1: ejercicio1.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/ejercicio2.p1: ejercicio2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/ejercicio1.p1.d 
-	@${RM} ${OBJECTDIR}/ejercicio1.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mosccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ejercicio1.p1 ejercicio1.c 
-	@-${MV} ${OBJECTDIR}/ejercicio1.d ${OBJECTDIR}/ejercicio1.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/ejercicio1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/ejercicio2.p1.d 
+	@${RM} ${OBJECTDIR}/ejercicio2.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mosccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ejercicio2.p1 ejercicio2.c 
+	@-${MV} ${OBJECTDIR}/ejercicio2.d ${OBJECTDIR}/ejercicio2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ejercicio2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
