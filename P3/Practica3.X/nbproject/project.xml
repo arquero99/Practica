@@ -5,7 +5,7 @@
             <name>Practica3</name>
             <creation-uuid>043bd9ab-7061-4fcb-9764-397fb65bda7d</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
             <header-extensions/>
             <asminc-extensions/>

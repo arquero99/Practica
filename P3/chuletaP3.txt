@@ -39,3 +39,7 @@ defined as TAD. A minimum wait of 2TAD is required before next acquisition start
 Operation ADCS1:ADCS0 4 MHz     2 MHz  1.25 MHz     333.33 kHz
 8TOSC     01          400 ns(2) 1.6 µs 6.4 µs       24 µs(3)
 32TOSC    10          1.6 µs    6.4 µs 25.6 µs(3)   96 µs(3)
+
+
+------------------------------------------------------------
+
